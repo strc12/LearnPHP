@@ -31,6 +31,26 @@ Exammark INT(2),
 Comment VARCHAR(255),
 PRIMARY KEY(Subjectid,Userid))");
 $stmt3->execute();
-$stmt3->closeCursor();
+$stmt3->closeCursor(); 
 
+$stmt4 = $conn->prepare("INSERT INTO TblUser(UserID,Gender,Surname,Forename,Password,House,Year,Role)VALUES 
+(NULL,'M','Cunniffe','Robert','qwerty','StA',13,1),
+(NULL,'F','Strachan','Ally','qwerty123','New',13,1),
+(NULL,'M','Smith','John','password','Bramston',13,0),
+(NULL,'M','Jones','Davy','password','Bramston',13,0),
+(NULL,'M','Patel','Nish','password','Bramston',13,0)
+");
+
+
+$stmt4->execute();
+$stmt4->closeCursor();
+$stmt5 = $conn->prepare("INSERT INTO TblSubjects(SubjectID,Subjectname,Teacher)VALUES 
+(NULL,'Maths','AMS'),
+(NULL,'Computing','RIC'),
+(NULL,'Latin','KEA')
+");
+$stmt5->execute();
+$stmt5->closeCursor();
+
+$conn=Null;
 ?>

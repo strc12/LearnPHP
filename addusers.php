@@ -7,7 +7,7 @@ try{
 		case "Pupil":
 			$role=0;
 			break;
-			case "Teacher":
+		case "Teacher":
 			$role=1;
 			break;
 		case "Admin":
