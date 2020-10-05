@@ -19,7 +19,7 @@ try {
     Gender VARCHAR(1) NOT NULL,
     Surname VARCHAR(20) NOT NULL,
     Forename VARCHAR(20) NOT NULL,
-    Password VARCHAR(20) NOT NULL,
+    Password VARCHAR(72) NOT NULL,
     House VARCHAR(20) NOT NULL,
     Year INT(2) NOT NULL,
     Role TINYINT(1))");

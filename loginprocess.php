@@ -6,10 +6,11 @@ $stmt->bindParam(':username', $_POST['Username']);
 $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 { 
-    if($row['Password']== $_POST['Pword']){
+    $hashed= $row['Password'];
+    $attempt= $_POST['Pword'];
+    if(password_verify($attempt,$hashed)){
         header('Location: addusers.php');
     }else{
-
         header('Location: login.php');
     }
 }
