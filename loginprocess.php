@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 include_once ("connection.php");
 array_map("htmlspecialchars", $_POST);
 $stmt = $conn->prepare("SELECT * FROM tbluser WHERE surname =:username ;" );
@@ -9,7 +10,10 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     $hashed= $row['Password'];
     $attempt= $_POST['Pword'];
     if(password_verify($attempt,$hashed)){
-        header('Location: addusers.php');
+        $_SESSION['name']=$row["Surname"];
+        $backURL = empty($_SESSION['backURL']) ? '/' : $_SESSION['backURL'];
+        unset($_SESSION['backURL']);
+        header('Location: ' . $backURL);
     }else{
         header('Location: login.php');
     }

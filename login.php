@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,15 @@
 <body>
 
 <form action="loginprocess.php" method= "POST">
+<?php
+echo '<input type="hidden" name="location" value="';
+if(isset($_GET['location'])) {
+    echo htmlspecialchars($_GET['location']);
+}else{
+$_GET['Location']="index.php";
+}
+echo '" />'
+?>
  User name:<input type="text" name="Username"><br>
  Password:<input type="password" name="Pword"><br>
   <input type="submit" value="Login">
