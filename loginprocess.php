@@ -11,7 +11,11 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
     $attempt= $_POST['Pword'];
     if(password_verify($attempt,$hashed)){
         $_SESSION['name']=$row["Surname"];
-        $backURL = empty($_SESSION['backURL']) ? '/' : $_SESSION['backURL'];
+        if (!isset($_SESSION['backURL'])){
+            $backURL= "/";
+        }else{
+            $backURL=$_SESSION['backURL'];
+        }
         unset($_SESSION['backURL']);
         header('Location: ' . $backURL);
     }else{

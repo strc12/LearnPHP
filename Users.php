@@ -1,6 +1,5 @@
 <?php
 session_start(); 
-//echo($_session["name"]);
 if (!isset($_SESSION['name']))
 {   
   $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];

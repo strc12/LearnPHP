@@ -1,8 +1,9 @@
 <?php
 session_start(); 
 if (!isset($_SESSION['name']))
-{
-    header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
+{   
+  $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
+    header("Location:login.php");
 }
 ?>
 <html>

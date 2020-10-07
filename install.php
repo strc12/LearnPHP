@@ -45,15 +45,15 @@ try {
     PRIMARY KEY(Subjectid,Userid))");
     $stmt3->execute();
     $stmt3->closeCursor(); 
-
+    $hashed_password = password_hash("password", PASSWORD_DEFAULT);
     $stmt4 = $conn->prepare("INSERT INTO TblUser(UserID,Gender,Surname,Forename,Password,House,Year,Role)VALUES 
-    (NULL,'M','Cunniffe','Robert','qwerty','StA',13,1),
-    (NULL,'F','Strachan','Ally','qwerty123','New',13,1),
-    (NULL,'M','Smith','John','password','Bramston',13,0),
-    (NULL,'M','Jones','Davy','password','Bramston',13,0),
-    (NULL,'M','Patel','Nish','password','Bramston',13,0)
+    (NULL,'M','Cunniffe','Robert',:hp,'StA',13,1),
+    (NULL,'F','Strachan','Ally',:hp,'New',13,1),
+    (NULL,'M','Smith','John',:hp,'Bramston',13,0),
+    (NULL,'M','Jones','Davy',:hp,'Bramston',13,0),
+    (NULL,'M','Patel','Nish',:hp,'Bramston',13,0)
     ");
-
+    $stmt4->bindParam(':hp', $hashed_password);
 
     $stmt4->execute();
     $stmt4->closeCursor();
