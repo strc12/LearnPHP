@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 41df9e1a9d3a1f93c5abfb3febc5c9c0f6d6604d
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,4 +19,8 @@
 
 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 41df9e1a9d3a1f93c5abfb3febc5c9c0f6d6604d
